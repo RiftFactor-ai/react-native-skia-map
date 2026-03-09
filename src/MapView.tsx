@@ -98,8 +98,18 @@ export function SkiaMapView({
   // For reading camera state from JS thread
   const cameraRef = useRef<CameraState>({ center: startCenter, zoom: startZoom });
 
-  // Transform: translate by pan offset
+  // Visual scale during pinch (resets to 1 after pinch ends and tiles reload)
+  const pinchScale = useSharedValue(1);
+  const focalX = useSharedValue(0);
+  const focalY = useSharedValue(0);
+
+  // Transform: scale around focal point + translate by pan offset
   const transform = useDerivedValue(() => [
+    { translateX: focalX.value },
+    { translateY: focalY.value },
+    { scale: pinchScale.value },
+    { translateX: -focalX.value },
+    { translateY: -focalY.value },
     { translateX: offsetX.value },
     { translateY: offsetY.value },
   ]);
@@ -155,14 +165,19 @@ export function SkiaMapView({
 
   const pinchStartZoom = useSharedValue(startZoom);
   const pinchGesture = Gesture.Pinch()
-    .onBegin(() => {
+    .onBegin((e) => {
       pinchStartZoom.value = zoomLevel.value;
+      focalX.value = e.focalX;
+      focalY.value = e.focalY;
     })
     .onUpdate((e) => {
-      const newZoom = clampZoom(pinchStartZoom.value + Math.log2(e.scale), minZoom, maxZoom);
-      zoomLevel.value = newZoom;
+      pinchScale.value = e.scale;
+      zoomLevel.value = clampZoom(pinchStartZoom.value + Math.log2(e.scale), minZoom, maxZoom);
     })
     .onEnd(() => {
+      pinchScale.value = 1;
+      offsetX.value = 0;
+      offsetY.value = 0;
       runOnJS(syncCamera)();
     });
 
