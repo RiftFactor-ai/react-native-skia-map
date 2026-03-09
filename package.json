@@ -1,0 +1,39 @@
+{
+  "name": "@riftfactor/react-native-skia-map",
+  "version": "0.1.0",
+  "description": "GPU-accelerated map renderer for React Native using Skia. No WebView. Built for Fabric.",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/riftfactor/react-native-skia-map"
+  },
+  "homepage": "https://riftfactor.ai",
+  "keywords": [
+    "react-native",
+    "skia",
+    "map",
+    "mapview",
+    "tiles",
+    "fabric",
+    "new-architecture",
+    "gpu",
+    "openstreetmap",
+    "cartodb"
+  ],
+  "author": "RiftFactor AI <engineering@riftfactor.ai>",
+  "license": "MIT",
+  "peerDependencies": {
+    "@shopify/react-native-skia": ">=1.0.0",
+    "react": ">=18.0.0",
+    "react-native": ">=0.74.0",
+    "react-native-gesture-handler": ">=2.0.0",
+    "react-native-reanimated": ">=3.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "files": [
+    "src/"
+  ]
+}
