@@ -1,11 +1,14 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/version-0.1.0-7C3AED?style=for-the-badge" alt="version" />
+  <img src="https://img.shields.io/badge/status-Work%20In%20Progress-FF6B35?style=for-the-badge" alt="status" />
+  <img src="https://img.shields.io/badge/version-0.1.0--alpha-7C3AED?style=for-the-badge" alt="version" />
   <img src="https://img.shields.io/badge/platform-iOS%20%7C%20Android-1E293B?style=for-the-badge" alt="platform" />
   <img src="https://img.shields.io/badge/architecture-Fabric%20%2F%20New%20Arch-10B981?style=for-the-badge" alt="architecture" />
   <img src="https://img.shields.io/badge/license-MIT-F59E0B?style=for-the-badge" alt="license" />
 </p>
 
 <h1 align="center">@riftfactor/react-native-skia-map</h1>
+
+> **🚧 Work in Progress** — This library is under active development. Core rendering and pan gestures work. Pinch zoom, marker interactions, and polygon editing are being refined. Not yet production-ready.
 
 <p align="center">
   <strong>GPU-accelerated map renderer for React Native — built on Skia, Reanimated & Gesture Handler</strong>
