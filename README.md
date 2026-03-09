@@ -16,6 +16,10 @@
   Pure Skia rendering on the UI thread at 60fps.
 </p>
 
+<p align="center">
+  <a href="https://github.com/RiftFactor-ai/skia-map-demo"><strong>See the full demo app →</strong></a>
+</p>
+
 ---
 
 ## Why This Exists
